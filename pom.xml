@@ -108,5 +108,12 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.geysermc.floodgate</groupId>
+            <artifactId>floodgate</artifactId>
+            <version>2.2.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/floodgate-spigot.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>
