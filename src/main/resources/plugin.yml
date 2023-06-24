@@ -1,4 +1,4 @@
-name: UltiTools-MODIFIED
+name: UltiTools-geyser
 version: ${project.version}
 main: com.ultikits.ultitools.ultitools.UltiTools
 api-version: 1.13

@@ -25,6 +25,8 @@ import static org.bukkit.Bukkit.getOnlinePlayers;
 public class TpaFormKit {
     public static void TpaRequestForm(@NotNull FloodgatePlayer floodgateTarget, @NotNull Player target, @NotNull Player sender) {
         if (UltiTools.isTpaformEnabled) {
+            int i = target.getNoDamageTicks();
+            target.setNoDamageTicks(2000000);
             floodgateTarget.sendForm(
                     SimpleForm.builder()
                             .title("传送请求面板")
@@ -33,11 +35,14 @@ public class TpaFormKit {
                             .button("拒绝")
                             .validResultHandler(response -> resultHandler1(response, sender, target, true)).build()
             );
+            target.setNoDamageTicks(i);
         }
     }
 
     public static void TpahereRequestForm(@NotNull FloodgatePlayer floodgateTarget, @NotNull Player target, @NotNull Player sender) {
         if (UltiTools.isTpaformEnabled) {
+            int i = target.getNoDamageTicks();
+            target.setNoDamageTicks(2000000);
             floodgateTarget.sendForm(
                     SimpleForm.builder()
                             .title("传送请求面板")
@@ -46,11 +51,14 @@ public class TpaFormKit {
                             .button("拒绝")
                             .validResultHandler(response -> resultHandler1(response, sender, target, false)).build()
             );
+            target.setNoDamageTicks(i);
         }
     }
 
     public static void TpaChooseForm(@NotNull FloodgatePlayer floodgateSender, @NotNull Player sender) {
         if (UltiTools.isTpaformEnabled) {
+            int i1 = sender.getNoDamageTicks();
+            sender.setNoDamageTicks(2000000);
             Player[] onlinePlayers = getOnlinePlayers().toArray(new Player[getOnlinePlayers().size()]);
             ArrayList<String> list = new ArrayList<>();
             list.add("空");
@@ -66,6 +74,7 @@ public class TpaFormKit {
                             .validResultHandler(response -> resultHandler2(response, sender, onlinePlayers)).build()
 
             );
+            sender.setNoDamageTicks(i1);
         }
     }
     public static void resultHandler1(@NotNull SimpleFormResponse response, Player sender, Player target,  boolean mode){
