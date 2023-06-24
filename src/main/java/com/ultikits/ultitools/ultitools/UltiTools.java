@@ -47,6 +47,7 @@ public final class UltiTools extends JavaPlugin {
     public static DatabaseUtils databaseUtils;
     private static boolean isUltiCoreUpToDate;
     private ProChecker proChecker;
+    public static boolean isTpaformEnabled;
     private static final String banner = "\n" +
             "§b§n==================================================§f\n" +
             "§b§l   __  __ __ __   _  ______               __     §f\n" +
@@ -282,6 +283,12 @@ public final class UltiTools extends JavaPlugin {
             CommandRegister.registerCommand(plugin, new TpaHereCommands(), "ultikits.tools.tpa", languageUtils.getString("tpa_function"), "tpahere");
             getServer().getPluginManager().registerEvents(new TpaAcceptListener(), this);
         }
+        if (this.getConfig().getBoolean("enable_tpaform")) {
+            CommandRegister.registerCommand(plugin, new TpaFormCommand(), "ultikits.tools.tpa", languageUtils.getString("tpa_function"), "tpaform");
+            if(this.getConfig().getBoolean("enable_tpa")) {
+            isTpaformEnabled = true;
+            }
+        }
         if (this.getConfig().getBoolean("enable_warp")) {
             CommandRegister.registerCommand(plugin, new WarpCommands(), "ultikits.tools.warp", languageUtils.getString("warp_function"), "warp", "w");
             CommandRegister.registerCommand(plugin, new WarpCommands(), "ultikits.tools.warp", languageUtils.getString("warp_function"), "warps");
@@ -414,7 +421,7 @@ public final class UltiTools extends JavaPlugin {
 
         //检查更新
         if (getConfig().getBoolean("enable_version_check")) {
-            VersionChecker.runTask();
+            getServer().getConsoleSender().sendMessage(ChatColor.YELLOW + "[UltiTools] 自动更新已禁用");
         }
 
         ChestLockUtils.transformOldData();                                                                              //chestData.yml文件转换

@@ -1,9 +1,9 @@
-name: UltiTools
+name: UltiTools-MODIFIED
 version: ${project.version}
 main: com.ultikits.ultitools.ultitools.UltiTools
 api-version: 1.13
-depend: [ PlaceholderAPI, Vault, UltiCore ]
-authors: [ wisdomme, qianmo ]
+depend: [ PlaceholderAPI, Vault, UltiCore, floodgate]
+authors: [ wisdomme, qianmo,EnderLight3336 ]
 website: ultikits.com
 
 commands:

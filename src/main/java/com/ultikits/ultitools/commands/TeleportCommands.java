@@ -1,12 +1,14 @@
 package com.ultikits.ultitools.commands;
 
 import com.ultikits.abstracts.AbstractTabExecutor;
+import me.enderlight3336.modified.form.TpaFormKit;
 import com.ultikits.ultitools.tasks.TpTimerTask;
 import com.ultikits.ultitools.ultitools.UltiTools;
 import com.ultikits.utils.MessagesUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
+import org.geysermc.floodgate.api.FloodgateApi;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -59,6 +61,10 @@ public class TeleportCommands extends AbstractTabExecutor {
                         target.sendMessage(MessagesUtils.info(String.format(UltiTools.languageUtils.getString("tpa_tp_enquire"), player.getName())));
                         target.sendMessage(MessagesUtils.info(UltiTools.languageUtils.getString("tpa_accept_tip")));
                         target.sendMessage(MessagesUtils.info(UltiTools.languageUtils.getString("tpa_reject_tip")));
+
+                        if(FloodgateApi.getInstance().isFloodgatePlayer(target.getUniqueId())) {
+                            TpaFormKit.TpaRequestForm(FloodgateApi.getInstance().getPlayer(target.getUniqueId()), target, player);
+                        }
                         return true;
                 }
             default:

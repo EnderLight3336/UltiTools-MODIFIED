@@ -7,11 +7,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ultikits</groupId>
-    <artifactId>UltiTools</artifactId>
-    <version>5.2.1</version>
+    <artifactId>UltiTools-geyser</artifactId>
+    <version>5.2.1+17</version>
     <packaging>jar</packaging>
 
-    <name>UltiTools</name>
+    <name>UltiTools-geyser</name>
 
     <properties>
         <java.version>1.8</java.version>

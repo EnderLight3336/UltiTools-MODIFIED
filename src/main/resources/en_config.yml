@@ -163,3 +163,6 @@ enable_custom_recipe: true
 
 "comment61": "enable hide function"
 enable_hide_function: true
+
+"comment62": "enable tpa form"
+enable_tpaform: true
