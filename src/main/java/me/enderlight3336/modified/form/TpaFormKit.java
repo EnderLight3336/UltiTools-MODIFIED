@@ -35,7 +35,7 @@ public class TpaFormKit {
                             .button("拒绝")
                             .validResultHandler(response -> resultHandler1(response, sender, target, true)).build()
             );
-            target.setNoDamageTicks(i);
+            target.setNoDamageTicks(i+3);
         }
     }
 
@@ -51,7 +51,7 @@ public class TpaFormKit {
                             .button("拒绝")
                             .validResultHandler(response -> resultHandler1(response, sender, target, false)).build()
             );
-            target.setNoDamageTicks(i);
+            target.setNoDamageTicks(i+3);
         }
     }
 
@@ -74,7 +74,7 @@ public class TpaFormKit {
                             .validResultHandler(response -> resultHandler2(response, sender, onlinePlayers)).build()
 
             );
-            sender.setNoDamageTicks(i1);
+            sender.setNoDamageTicks(i1+3);
         }
     }
     public static void resultHandler1(@NotNull SimpleFormResponse response, Player sender, Player target,  boolean mode){

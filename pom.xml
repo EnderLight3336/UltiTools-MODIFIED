@@ -8,7 +8,7 @@
 
     <groupId>com.ultikits</groupId>
     <artifactId>UltiTools-geyser</artifactId>
-    <version>5.2.1+18</version>
+    <version>5.2.1_R1.0</version>
     <packaging>jar</packaging>
 
     <name>UltiTools-geyser</name>
