@@ -25,6 +25,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.geysermc.floodgate.platform.command.FloodgateCommand;
 
 import java.io.File;
 import java.util.*;
@@ -283,9 +284,8 @@ public final class UltiTools extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new TpaAcceptListener(), this);
         }
         if (this.getConfig().getBoolean("enable_tpaform")) {
-            CommandRegister.registerCommand(plugin, new TpaFormCommand(), "ultikits.tools.tpa", languageUtils.getString("tpa_function"), "tpaform");
             if(this.getConfig().getBoolean("enable_tpa")) {
-            isTpaformEnabled = true;
+                CommandRegister.registerCommand(plugin, new TpaFormCommand(), "ultikits.tools.tpa", languageUtils.getString("tpa_function"), "tpaform");
             }
         }
         if (this.getConfig().getBoolean("enable_warp")) {
