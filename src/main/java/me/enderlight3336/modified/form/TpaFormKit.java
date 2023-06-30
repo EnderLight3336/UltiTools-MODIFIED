@@ -12,8 +12,6 @@ import org.geysermc.cumulus.response.CustomFormResponse;
 import org.geysermc.cumulus.response.SimpleFormResponse;
 import org.geysermc.floodgate.api.FloodgateApi;
 import org.geysermc.floodgate.api.player.FloodgatePlayer;
-
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -24,31 +22,35 @@ import static org.bukkit.Bukkit.getOnlinePlayers;
 
 public class TpaFormKit {
     public static void TpaRequestForm(@NotNull FloodgatePlayer floodgateTarget, @NotNull Player target, @NotNull Player sender) {
-        int i = target.getNoDamageTicks();
-        target.setNoDamageTicks(2000000);
-        floodgateTarget.sendForm(
-                SimpleForm.builder()
-                        .title("传送请求面板")
-                        .content(sender.getDisplayName() + "请求传送至您的位置")
-                        .button("同意")
-                        .button("拒绝")
-                        .validResultHandler(response -> resultHandler1(response, sender, target, true)).build()
-        );
-        target.setNoDamageTicks(i + 3);
+        if (UltiTools.isTpaformEnabled) {
+            int i = target.getNoDamageTicks();
+            target.setNoDamageTicks(2000000);
+            floodgateTarget.sendForm(
+                    SimpleForm.builder()
+                            .title("传送请求面板")
+                            .content(sender.getDisplayName() + "请求传送至您的位置")
+                            .button("同意")
+                            .button("拒绝")
+                            .validResultHandler(response -> resultHandler1(response, sender, target, true)).build()
+            );
+            target.setNoDamageTicks(i + 3);
+        }
     }
 
     public static void TpahereRequestForm(@NotNull FloodgatePlayer floodgateTarget, @NotNull Player target, @NotNull Player sender) {
-        int i = target.getNoDamageTicks();
-        target.setNoDamageTicks(2000000);
-        floodgateTarget.sendForm(
-                SimpleForm.builder()
-                        .title("传送请求面板")
-                        .content(sender.getDisplayName() + "请求您传送至他的位置")
-                        .button("同意")
-                        .button("拒绝")
-                        .validResultHandler(response -> resultHandler1(response, sender, target, false)).build()
-        );
-        target.setNoDamageTicks(i + 3);
+        if (UltiTools.isTpaformEnabled) {
+            int i = target.getNoDamageTicks();
+            target.setNoDamageTicks(2000000);
+            floodgateTarget.sendForm(
+                    SimpleForm.builder()
+                            .title("传送请求面板")
+                            .content(sender.getDisplayName() + "请求您传送至他的位置")
+                            .button("同意")
+                            .button("拒绝")
+                            .validResultHandler(response -> resultHandler1(response, sender, target, false)).build()
+            );
+            target.setNoDamageTicks(i + 3);
+        }
     }
 
     public static void TpaChooseForm(@NotNull FloodgatePlayer floodgateSender, @NotNull Player sender) {

@@ -286,6 +286,7 @@ public final class UltiTools extends JavaPlugin {
         if (this.getConfig().getBoolean("enable_tpaform")) {
             if(this.getConfig().getBoolean("enable_tpa")) {
                 CommandRegister.registerCommand(plugin, new TpaFormCommand(), "ultikits.tools.tpa", languageUtils.getString("tpa_function"), "tpaform");
+                isTpaformEnabled = true;
             }
         }
         if (this.getConfig().getBoolean("enable_warp")) {
